@@ -8,9 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FeedComponent } from './feed/feed.component';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, FeedComponent],
+  declarations: [AppComponent, LoginComponent, FeedComponent, SinglePostComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

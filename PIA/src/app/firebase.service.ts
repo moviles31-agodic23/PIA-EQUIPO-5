@@ -51,5 +51,25 @@ export class FirebaseService {
   }
 
 
+  getPostById(postId: string): Observable<any> {
+    const postsCollection = collection(db, 'posts');
+    const postDocRef = doc(postsCollection, postId);
+
+    return from(getDoc(postDocRef)).pipe(
+      map((postDocSnapshot) => {
+        if (postDocSnapshot.exists()) {
+          return postDocSnapshot.data();
+        } else {
+          throw new Error('El post no existe');
+        }
+      }),
+      catchError((error) => {
+        console.error('Error al obtener el post:', error);
+        return throwError(error);
+      })
+    );
+  }
+
+
 
 }
