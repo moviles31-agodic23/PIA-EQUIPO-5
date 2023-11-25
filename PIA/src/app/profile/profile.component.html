@@ -1,35 +1,38 @@
 <div class="overflow-y-auto h-screen overflow-x-hidden">
- 
+  
   <div class="min-w-[50vh]"> 
     <div class="w-full flex flex-row ">
-      <span class="text-lg pl-6 pt-6">@Ruffles</span>
+      <span class="text-lg pl-6 pt-6"> @{{userInfo.nameUser}}</span>
+      
     </div>
   <div class="max-w-full flex-col box-border h-[40vh]  pt-6">
     <div class="box-border w-screen flex flex-row justify-around">
       <div class="bg-slate-400 h-24 w-24 rounded-full">
-        <img src="" alt="">
+        <img class="rounded-full h-24 w-24 " [src]="userInfo.pfp" alt="">
       </div>
       <div class="flex gap-2 items-center h-24">
-          <div class="flex flex-col">
-            <span>1211</span>
+          <div class="flex flex-col items-center ">
+            <span>4</span>
             <span>Publicaciones</span>
           </div>
-          <div class="flex flex-col">
-            <span>1211</span>
+          <div class="flex flex-col items-center">
+            <span>{{userInfo.followers}}</span>
             <span>Seguidores</span>
           </div>
-          <div class="flex flex-col">
-            <span>1211</span>
+          <div class="flex flex-col items-center">
+            <span>{{userInfo.following}}</span>
             <span>Seguidos</span>
           </div>
       </div>
     </div>
     <div class="box-border w-screen px-5 pt-4">
-      <p>ruffles</p>
+      <div class="h-[10vh]">
+      <p>{{userInfo.name}}</p>
       <p>influencer</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos in dicta et accusantium? </p>
+      <p>{{userInfo.bio}}</p>
+      </div>
       <div class="flex items-center justify-center">
-        <button class=" bg-slate-600 m-5 w-80 rounded-md">
+        <button class=" bg-blue-50 m-5 p-2 w-80 rounded-md">
           Editar Perfil
         </button>
       </div>
@@ -40,18 +43,11 @@
   <div class="min-h-[50vh]">
     
     <div class="flex flex-row content-start h-full flex-wrap min-h-[45vh] mb-[5vh] ">
-      <div class=" h-[calc(50vh/3)] w-[33.33%] bg-slate-500">3</div>
-      <div class="h-[calc(50vh/3)] w-[33.33%] bg-slate-500">3</div>
-      <div class="h-[calc(50vh/3)] w-[33.33%] bg-slate-500">3</div>
-      <div class="h-[calc(50vh/3)] w-[33.33%] bg-slate-500">3</div>
-      <div class="h-[calc(50vh/3)] w-[33.33%] bg-slate-500">3</div>
-      <div class="h-[calc(50vh/3)] w-[33.33%] bg-slate-500">3</div>
-      <div class="h-[calc(50vh/3)] w-[33.33%] bg-slate-500">3</div>
-      <div class="h-[calc(50vh/3)] w-[33.33%] bg-slate-500">3</div>
-      <div class="h-[calc(50vh/3)] w-[33.33%] bg-slate-500">3</div>
-      <div class="h-[calc(50vh/3)] w-[33.33%] bg-slate-500">3</div>
+      
+        <img class="h-[calc(50vh/3)] w-[33.33%]" [src]="image.imageUrl" *ngFor="let image of src">
+      
     </div> 
-    <div class="flex justify-around flex-row fixed bg-orange-950  bottom-0 w-screen h-[5vh]"><button>a</button> <button>e</button> <button>i</button></div>
+    <div class="flex justify-around flex-row fixed bg-neutral-80 b-neutral-200 border-solid border-t-2 bottom-0 w-screen h-[5vh]"><a routerLink="/"><ion-icon class="w-7 h-7 mt-2" name="home-outline"></ion-icon></a> <a href=""><ion-icon class="w-7 h-7 mt-2" name="medkit-outline"></ion-icon></a><a href=""><img class="h-7 w-7 rounded-full mt-2" [src]="userInfo.pfp" alt=""></a>  </div>
   </div>
 
 </div>
