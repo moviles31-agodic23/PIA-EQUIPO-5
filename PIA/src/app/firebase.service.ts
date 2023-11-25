@@ -29,6 +29,27 @@ export class FirebaseService {
   }
 
 
-  
+  getUserById(userId: number): Observable<any> {
+    const usersCollection = collection(db, 'users');
+    const q = query(usersCollection, where('id', '==', userId));
+
+
+    return from(getDocs(q)).pipe(
+      map((querySnapshot) => {
+        if (!querySnapshot.empty) {
+          const userDoc = querySnapshot.docs[0];
+          return userDoc.data();
+        } else {
+          throw new Error('El usuario no existe');
+        }
+      }),
+      catchError((error) => {
+        console.error('Error al obtener el usuario:', error);
+        return throwError(error);
+      })
+    );
+  }
+
+
 
 }

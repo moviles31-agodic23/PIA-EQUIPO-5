@@ -25,7 +25,18 @@ export class FeedComponent  implements OnInit {
   }
 
   ngOnInit() {
-    //console.log(this.user, this.posts);
+    // conseguir info del usuario
+    this.firebaseService.getUserById(this.userIdToRetrieve).subscribe(
+      (userData) => {
+        console.log('Datos del usuario:', userData);
+        this.user = userData;
+      },
+      (error) => {
+        console.error('Error al obtener el usuario:', error);
+        // Manejar el error
+      }
+    );
+
     // conseguir todos los posts del usuario
     this.firebaseService.getPostByUserId(this.userIdToRetrieve).subscribe(
       (postsData) => {
