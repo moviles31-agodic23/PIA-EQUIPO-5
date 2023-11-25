@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FotoService } from '../foto-service.service';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Capacitor } from '@capacitor/core';
-
+import { FirebaseStorage } from '@angular/fire/storage';
 import { Storage } from '@angular/fire/storage';
 import { getDownloadURL, ref, uploadBytes } from '@angular/fire/storage';
 import { Firestore, addDoc, collection } from '@angular/fire/firestore';
+
 @Component({
   selector: 'app-camera',
   templateUrl: './camera.component.html',
@@ -29,8 +29,11 @@ async takePicture(){
      const blob= this.urltoBlob(image.dataUrl);
      const url = await this.Upload(blob, image);
      console.log(url);
-     const response = await this.addDocument('test', { imageUrl: url } );
+     const response = await this.addDocument('posts', { caption: "", likes: 30, imageUrl: url, postId: 3, userId: 1} );
      console.log(response);
+     
+     
+     
   }
   catch(e){
     console.log(e);
@@ -49,7 +52,7 @@ urltoBlob(dataUrl: any){
 async Upload(blob: any, imageData: any){
   try{
     const currentDate = Date.now();
-    const filePath =`test/${currentDate}.${imageData.format}`;
+    const filePath =`posts/${currentDate}.${imageData.format}`;
     const fileRef = ref(this.storage, filePath);
     const task = await uploadBytes(fileRef, blob);
     console.log('task', task);
@@ -61,6 +64,7 @@ async Upload(blob: any, imageData: any){
 }
 
 addDocument(path: any, data: any){
+  
   const dataRef = collection(this.firestore, path);
   return addDoc(dataRef, data);
 }
