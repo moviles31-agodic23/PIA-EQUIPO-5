@@ -14,9 +14,10 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment.prod';
 import { FormsModule } from '@angular/forms';
+import { FeedComponent } from './feed/feed.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent,ProfileComponent],
+  declarations: [AppComponent, LoginComponent,ProfileComponent, FeedComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideStorage(() => getStorage()),FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

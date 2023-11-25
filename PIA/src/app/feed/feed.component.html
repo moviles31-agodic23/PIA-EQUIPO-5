@@ -1,0 +1,51 @@
+<ion-content>
+<ion-grid *ngFor="let post of posts">
+<!-- Componente inicio espacio -->
+  <ion-row class="blankSpace">
+    <ion-col></ion-col>
+  </ion-row>
+<!-- profile top bar -->
+  <ion-row class="profileTopBar">
+    <!-- pfp + name -->
+    <ion-col offset="1" size="3" class="profileInfo">
+      <img class="imagen-circular" src="{{user.pPUrl}}">
+      <p>{{user.username}}</p>
+    </ion-col>
+    <!-- menu ... -->
+    <ion-col offset="6" size="2">
+      <ion-icon name="ellipsis-horizontal"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+
+  <!-- picture -->
+  <img src="{{post.imageUrl}}" class="postImg" alt="">
+
+  <!-- icons row -->
+  <ion-row class="iconsRow">
+    <ion-col size="1">
+      <ion-icon size="large" [name]="post.isHeartFilled ? 'heart' : 'heart-outline'" [color]="post.isHeartFilled ? 'danger' : 'black'" (click)="toggleHeartIcon(post)"></ion-icon>
+    </ion-col>
+    <ion-col size="1">
+      <ion-icon style="transform: rotate(270deg)" size="large" name="chatbubble-outline"></ion-icon>
+    </ion-col>
+    <ion-col size="1">
+      <ion-icon style="transform: rotate(20deg)" size="large" name="paper-plane-outline"></ion-icon>
+    </ion-col>
+    <ion-col offset="7" size="1">
+      <ion-icon size="large" [name]="post.isBookMarked ? 'bookmark' :'bookmark-outline'" (click)="toggleBookMark(post)"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <!-- post info -->
+
+  <ion-row class="postInfo">
+    <ion-col>
+      <p>{{post.caption}}... <span class="gText">more</span></p>
+      <p class="postTime">30 minutes ago</p>
+    </ion-col>
+  </ion-row>
+
+
+</ion-grid>
+</ion-content>
