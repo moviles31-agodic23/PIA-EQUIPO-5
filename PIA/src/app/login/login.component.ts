@@ -10,6 +10,7 @@ import { UserService } from '../services/user.service';
 export class LoginComponent  implements OnInit {
   usuario:string='';
   pwd: string ='';
+  msg = '';
   constructor(private userService:UserService) { }
 
   ngOnInit() {}
@@ -20,7 +21,10 @@ export class LoginComponent  implements OnInit {
       console.log("Se entro correctamente!")
       console.log(response);
     })
-    .catch(error=>console.log(error))
+    .catch(error=>{
+      console.log(error)
+      this.msg = "La contraseña o usuario es invalido"
+    })
   }
 
 }
