@@ -11,15 +11,15 @@
         <ion-card-content>
 
           <ion-label position="floating">User</ion-label>
-          <ion-input name="nombre" type="text" required></ion-input>
+          <ion-input name="nombre" type="text" required [(ngModel)]="usuario"></ion-input>
 
           <ion-label position="floating">Password</ion-label>
-          <ion-input name="psw" type="password" required></ion-input>
+          <ion-input name="psw" type="password" required [(ngModel)]="pwd"></ion-input>
 
         </ion-card-content>
       
-        <ion-button fill="clear">Clear</ion-button>
-        <ion-button fill="clear">Log in</ion-button>
+        <ion-button fill="clear" >Clear</ion-button>
+        <ion-button fill="clear" (click)="submit()">Log in</ion-button>
       </ion-card>
 
     </div>
