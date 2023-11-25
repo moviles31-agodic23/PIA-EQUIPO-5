@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class LoginComponent  implements OnInit {
   usuario:string='';
   pwd: string ='';
   msg = '';
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private routes:Router) { }
 
   ngOnInit() {}
   submit(){
@@ -20,6 +21,7 @@ export class LoginComponent  implements OnInit {
     .then(response =>{
       console.log("Se entro correctamente!")
       console.log(response);
+      this.routes.navigate(['/feed'])
     })
     .catch(error=>{
       console.log(error)
