@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "piaappsmov"
+  },
+  "targets": {
+    "piaappsmov": {
+      "hosting": {
+        "app": [
+          "piaappsmov"
+        ]
+      }
+    }
+  }
+}

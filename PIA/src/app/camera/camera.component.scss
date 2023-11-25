@@ -1,0 +1,11 @@
+div{
+    border: 1px dashed var(--ion-color-dark);
+    border-radius: 10px;
+    img{
+        height: 50vh;
+    }
+    ion-icon{
+        font-size: 10rem;
+        margin: 20vh;
+    }
+}

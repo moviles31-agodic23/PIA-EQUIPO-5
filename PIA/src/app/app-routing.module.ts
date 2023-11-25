@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FeedComponent } from './feed/feed.component';
+import { CameraComponent } from './camera/camera.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,11 @@ const routes: Routes = [
     component: FeedComponent
   },
   {
-    path: 'perfil',
+    path: 'camera',
+    component: CameraComponent
+  },
+  {
+    path: 'profile',
     component: ProfileComponent
   }
 
