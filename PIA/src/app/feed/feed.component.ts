@@ -10,18 +10,12 @@ import { FirebaseService } from '../firebase.service';
 })
 export class FeedComponent  implements OnInit {
 
-  user: usuario;
+  user: usuario = new usuario(1,'2', '3',2, 2,'pfp', 's');
   posts: post[] = [];
   userIdToRetrieve = 1;
   
   constructor(private firebaseService: FirebaseService) { 
         // llamada a base de datos o de alguna manera pasar user y posts.
-        this.user = new usuario(1, "Rick", 2, 3, 4, 'https://picsum.photos/id/22/367/267', "Bio");
-
-        //this.posts.push(new post(1, 1,'https://picsum.photos/id/0/367/267','Hello', 200));
-        //this.posts.push(new post(1, 2,'https://picsum.photos/id/4/367/267','Bye', 2));
-        //this.posts.push(new post(1, 3, 'https://picsum.photos/id/5/367/267','Bye', 2));
-
   }
 
   ngOnInit() {
