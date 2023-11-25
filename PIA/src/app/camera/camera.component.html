@@ -11,6 +11,14 @@
     </ion-fab-button>
   </ion-fab>
 
-  <img *ngIf = "image" [src]="image"/>
+  <div>
+    <img *ngIf = "image" [src]="image"/>
+    <ion-icon *ngIf = "!image" name="images-outline"></ion-icon>
+  </div>
+
+  <div class="boton">
+    <ion-button expand = "block" (click)="submit()">UPLOAD</ion-button>
+  </div>
+  
  
 </ion-content>

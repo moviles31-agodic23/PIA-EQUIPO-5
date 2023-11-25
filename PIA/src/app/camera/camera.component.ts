@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Capacitor } from '@capacitor/core';
 import { FirebaseStorage } from '@angular/fire/storage';
 import { Storage } from '@angular/fire/storage';
 import { getDownloadURL, ref, uploadBytes } from '@angular/fire/storage';
 import { Firestore, addDoc, collection } from '@angular/fire/firestore';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-camera',
@@ -14,7 +15,8 @@ import { Firestore, addDoc, collection } from '@angular/fire/firestore';
 export class CameraComponent  implements OnInit {
   image: any;
   caption: string = '';
-  constructor(private storage: Storage, private firestore: Firestore) { }
+  constructor(private storage: Storage, private firestore: Firestore,
+    private toastController: ToastController) { }
   
 async takePicture(){
   try{
@@ -29,12 +31,10 @@ async takePicture(){
 
      this.image = image.dataUrl;
      const blob= this.urltoBlob(image.dataUrl);
-     const url = await this.Upload(blob, image);
+     const url = await this.Upload(blob, image.format);
      console.log(url);
      const response = await this.addDocument('posts', { caption: this.caption, likes: 30, imageUrl: url, postId: 3, userId: 1} );
-     console.log(response);
-     
-     
+     console.log(response);  
      
   }
   catch(e){
@@ -42,6 +42,9 @@ async takePicture(){
   }
 }
 
+submit(){
+  this.presentToast();
+}
 
 urltoBlob(dataUrl: any){
  var arr = dataUrl.split(','), mime = arr[0].match(/:(.*?);/)[1],
@@ -72,6 +75,16 @@ addDocument(path: any, data: any){
   return addDoc(dataRef, data);
 }
 
+async presentToast (){
+  const toast = await this.toastController.create({
+    message: 'Image Upload Succesfully',
+    duration: 1500,
+    position: 'bottom',
+    color: 'success'
+  });
+
+  await toast.present();
+}
   ngOnInit()
    {}
 
