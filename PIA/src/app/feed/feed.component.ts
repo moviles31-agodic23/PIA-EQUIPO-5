@@ -42,13 +42,7 @@ export class FeedComponent  implements OnInit {
         console.error('Error al obtener el post:', error);
         // Manejar el error
       }
-    );
-
-    
-
-    
-
-    
+    ); 
   }
 
  

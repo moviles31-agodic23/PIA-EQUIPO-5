@@ -18,7 +18,7 @@ const routes: Routes = [
     component: CameraComponent
   },
   {
-    path: 'profile',
+    path: 'perfil',
     component: ProfileComponent
   }
 

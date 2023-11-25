@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@angular/fire/storage'
+import { Router } from '@angular/router';
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from 'src/firebase';
 
@@ -20,15 +21,21 @@ export class ProfileComponent  implements OnInit {
     "name": ""
 };
   postAmount = 0
+  moveToPost(id:string){
+    console.log(id)
+    this.router.navigate([ '/feed',id ]);
+  }
+
   // private storage:Storage
-  constructor(private storage:Storage) { }
+  constructor(private storage:Storage,private router: Router) { }
   async getDocuments(){
     try{const docRef= collection(db, 'posts');
     const docSnap = await getDocs(docRef);
     docSnap.forEach((doc)=>
     {
+      
       this.postAmount++
-      this.src.push(doc.data())
+      this.src.push({data:doc.data(),id:doc.id})
     }
     )
     
