@@ -13,6 +13,7 @@ import { Firestore, addDoc, collection } from '@angular/fire/firestore';
 })
 export class CameraComponent  implements OnInit {
   image: any;
+  caption: string = '';
   constructor(private storage: Storage, private firestore: Firestore) { }
   
 async takePicture(){
@@ -29,7 +30,7 @@ async takePicture(){
      const blob= this.urltoBlob(image.dataUrl);
      const url = await this.Upload(blob, image);
      console.log(url);
-     const response = await this.addDocument('posts', { caption: "", likes: 30, imageUrl: url, postId: 3, userId: 1} );
+     const response = await this.addDocument('posts', { caption: this.caption, likes: 30, imageUrl: url, postId: 3, userId: 1} );
      console.log(response);
      
      

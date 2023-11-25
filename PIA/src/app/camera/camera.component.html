@@ -4,5 +4,12 @@
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+  <img *ngIf = "image" [src]="image"/>
+
+  <ion-label>Descripcion</ion-label>
+  <ion-input [(ngModel)] = "caption" label="Descripcion....."
+  label-placement="floating" fill="outline" placeholder="Enter text">
+  </ion-input>
  
 </ion-content>
