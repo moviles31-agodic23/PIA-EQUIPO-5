@@ -24,7 +24,7 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'post',
+    path: 'post/:id',
     component: SinglePostComponent
   },
 

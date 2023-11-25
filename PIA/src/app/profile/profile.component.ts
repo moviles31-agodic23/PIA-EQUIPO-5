@@ -22,8 +22,8 @@ export class ProfileComponent  implements OnInit {
 };
   postAmount = 0
   moveToPost(id:string){
-    console.log(id)
-    this.router.navigate([ '/feed',id ]);
+    
+    this.router.navigate([ '/post/',id ]);
   }
 
   // private storage:Storage
@@ -41,7 +41,7 @@ export class ProfileComponent  implements OnInit {
     
     
   }catch(error){
-    console.log(error)
+    
   }
     
   }
@@ -49,7 +49,7 @@ export class ProfileComponent  implements OnInit {
     try{
       const docRef= doc(db, 'users','profile');
       const docSnap = await getDoc(docRef);
-      console.log(docSnap.data())
+      
       this.userInfo = docSnap.data()
     
   }catch(error){

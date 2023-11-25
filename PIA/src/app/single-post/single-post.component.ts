@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { usuario } from '../shared/models/usuario.model';
 import { post } from '../shared/models/post.model';
 import { FirebaseService } from '../firebase.service';
+import { ActivatedRoute } from '@angular/router';
+import { doc } from 'firebase/firestore';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-single-post',
@@ -12,12 +15,21 @@ export class SinglePostComponent  implements OnInit {
 
   user: usuario = new usuario(1,'2', '3',2, 2,'pfp', 's');
   post: post = new post(1, 1, "test", "caption", 2);
-  postId: string = 'KLQff7R7OGCGan99NkCK';
+  postId: string = '';
   userIdToRetrieve = 1;
+  receivedInfo: any;
+  private routeSub:any;
+  constructor(private firebaseService: FirebaseService, private route: ActivatedRoute,) { }
 
-  constructor(private firebaseService: FirebaseService) { }
+  
 
   ngOnInit() {
+    this.routeSub = this.route.params.subscribe(params => {
+      console.log(params) //log the entire params object
+      console.log(params['id']) //log the value of id
+      this.postId=params['id']
+    });
+    console.log(this.routeSub)
     // conseguir info del usuario
     this.firebaseService.getUserById(this.userIdToRetrieve).subscribe(
       (userData) => {
@@ -28,7 +40,9 @@ export class SinglePostComponent  implements OnInit {
         console.error('Error al obtener el usuario:', error);
         // Manejar el error
       }
+      
     );
+    
 
     // Traer info del post
     this.firebaseService.getPostById(this.postId).subscribe(
@@ -43,7 +57,9 @@ export class SinglePostComponent  implements OnInit {
     );
 
   }
-
+  ngOnDestroy() {
+    this.routeSub.unsubscribe();
+  }
   toggleHeartIcon(post: post) {
     post.isHeartFilled = !post.isHeartFilled;
   }
