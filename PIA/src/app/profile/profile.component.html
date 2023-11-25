@@ -3,7 +3,6 @@
   <div class="min-w-[50vh]"> 
     <div class="w-full flex flex-row ">
       <span class="text-lg pl-6 pt-6"> @{{userInfo.nameUser}}</span>
-      
     </div>
   <div class="max-w-full flex-col box-border h-[40vh]  pt-6">
     <div class="box-border w-screen flex flex-row justify-around">
@@ -47,7 +46,7 @@
         <img class="h-[calc(50vh/3)] w-[33.33%]"  [src]="image.imageUrl" *ngFor="let image of src">
       
     </div> 
-    <div class="flex justify-around flex-row fixed bg-neutral-80 b-neutral-200 border-solid border-t-2 bottom-0 w-screen h-[5vh]"><a routerLink="/"><ion-icon class="w-7 h-7 mt-2" name="home-outline"></ion-icon></a> <a href=""><ion-icon class="w-7 h-7 mt-2" name="medkit-outline"></ion-icon></a><a href=""><img class="h-7 w-7 rounded-full mt-2" [src]="userInfo.pfp" alt=""></a>  </div>
+    <div class="flex justify-around flex-row fixed  bg-neutral-50 border-solid border-t-2 bottom-0 w-screen h-[5vh]"><a routerLink="/feed"><ion-icon class="w-7 h-7 mt-2" name="home-outline"></ion-icon></a> <a href=""><ion-icon class="w-7 h-7 mt-2" name="camera-outline"></ion-icon></a><a href=""><img class="h-7 w-7 rounded-full mt-2" [src]="userInfo.pfp" alt=""></a>  </div>
   </div>
 
 </div>
