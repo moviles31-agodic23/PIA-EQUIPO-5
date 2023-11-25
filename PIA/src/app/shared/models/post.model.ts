@@ -1,16 +1,16 @@
 export class post {
     userId: number;
     postId: number;
-    pictureUrl: string;
+    imageUrl: string;
     caption: string;
     likes: number;
     isHeartFilled: boolean;
     isBookMarked: boolean;
 
-    public constructor(userId: number, postId: number, pictureUrl: string, caption: string, likes: number) {
+    public constructor(userId: number, postId: number, imageUrl: string, caption: string, likes: number) {
         this.userId = userId;
         this.postId = postId;
-        this.pictureUrl = pictureUrl;
+        this.imageUrl = imageUrl;
         this.caption = caption;
         this.likes = likes;
         this.isHeartFilled = false;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { db } from 'src/firebase';
-import { collection, where, query, getDocs } from 'firebase/firestore';
+import { collection, where, query, getDocs, doc, getDoc } from 'firebase/firestore';
 import { Observable, from, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
@@ -28,5 +28,7 @@ export class FirebaseService {
     );
   }
 
+
+  
 
 }
