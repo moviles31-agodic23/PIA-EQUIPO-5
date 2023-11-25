@@ -14,9 +14,9 @@ import { environment } from 'src/environments/environment.prod';
 import { FormsModule } from '@angular/forms';
 import { FeedComponent } from './feed/feed.component';
 import { CameraComponent } from './camera/camera.component';
-
+import { SinglePostComponent } from './single-post/single-post.component';
 @NgModule({
-  declarations: [AppComponent, LoginComponent,ProfileComponent, FeedComponent, CameraComponent],
+  declarations: [AppComponent, LoginComponent,ProfileComponent, FeedComponent, CameraComponent,SinglePostComponent],
   imports: [BrowserModule,IonicModule.forRoot(), AppRoutingModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideStorage(() => getStorage()),FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

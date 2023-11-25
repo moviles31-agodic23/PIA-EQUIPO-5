@@ -4,11 +4,13 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FeedComponent } from './feed/feed.component';
 import { CameraComponent } from './camera/camera.component';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LoginComponent
+    
   },{
     path: 'feed',
     component: FeedComponent
@@ -20,7 +22,11 @@ const routes: Routes = [
   {
     path: 'perfil',
     component: ProfileComponent
-  }
+  },
+  {
+    path: 'post',
+    component: SinglePostComponent
+  },
 
 ];
 @NgModule({

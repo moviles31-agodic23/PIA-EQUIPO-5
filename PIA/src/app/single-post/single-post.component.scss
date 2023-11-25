@@ -1,0 +1,57 @@
+.blankSpace {
+    height: 50px;
+}
+
+@font-face {
+    font-family: 'Abel';
+    src: url('../../fonts/Abel-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+p, span {
+    font-family: 'Abel', sans-serif;
+    font-size: 14px;
+}
+
+.profileTopBar ion-col  {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.imagen-circular {
+    width: 30.32px;
+    height: 30.32px;
+    border-radius: 50%;
+    overflow: hidden; /* Para asegurar que la imagen no sobresalga del círculo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+  }
+
+ion-grid {
+    padding-left: 0;
+    padding-right: 0;
+}
+  .postImg {
+    width: 100%;
+    height: 396px;
+  }
+
+.iconsRow ion-col {
+    margin-right: 5px;
+}
+
+.postInfo ion-col {
+    padding-left: 20px;
+}
+
+.gText, .postTime {
+    color: #6E6E6E;
+
+}
+
+.postTime {
+    font-size: 12px;
+}
