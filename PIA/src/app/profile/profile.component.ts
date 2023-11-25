@@ -15,9 +15,11 @@ export class ProfileComponent  implements OnInit {
     "followers":NaN,
     "nameUser": "",
     "following": NaN,
+    "id":NaN,
     "pfp": "",
     "name": ""
 };
+  postAmount = 0
   // private storage:Storage
   constructor(private storage:Storage) { }
   async getDocuments(){
@@ -25,7 +27,7 @@ export class ProfileComponent  implements OnInit {
     const docSnap = await getDocs(docRef);
     docSnap.forEach((doc)=>
     {
-      
+      this.postAmount++
       this.src.push(doc.data())
     }
     )
