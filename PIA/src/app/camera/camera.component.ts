@@ -26,6 +26,7 @@ async takePicture(){
       allowEditing: false
      });
      console.log('image: ', image);
+
      this.image = image.dataUrl;
      const blob= this.urltoBlob(image.dataUrl);
      const url = await this.Upload(blob, image);
@@ -40,6 +41,7 @@ async takePicture(){
     console.log(e);
   }
 }
+
 
 urltoBlob(dataUrl: any){
  var arr = dataUrl.split(','), mime = arr[0].match(/:(.*?);/)[1],

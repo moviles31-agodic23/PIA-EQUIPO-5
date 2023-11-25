@@ -1,3 +1,9 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nueva Publicacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="takePicture()">
@@ -6,10 +12,5 @@
   </ion-fab>
 
   <img *ngIf = "image" [src]="image"/>
-
-  <ion-label>Descripcion</ion-label>
-  <ion-input [(ngModel)] = "caption" label="Descripcion....."
-  label-placement="floating" fill="outline" placeholder="Enter text">
-  </ion-input>
  
 </ion-content>
